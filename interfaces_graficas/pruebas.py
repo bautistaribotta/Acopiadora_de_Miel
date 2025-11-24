@@ -1,52 +1,75 @@
 import tkinter as tk
+from tkinter import ttk
 
+# Colores y fuentes
+COLOR_BG = "#1E1E1E"
+COLOR_PANEL = "#2C2C2C"
+COLOR_INPUT_BG = "#3A3A3A"
+COLOR_TEXT = "#FFFFFF"
+FUENTE = ("Segoe UI", 12)
 
-def centrar_ventana(ventana, aplicacion_ancho, aplicacion_alto):
-    ancho = ventana.winfo_screenwidth()
-    alto = ventana.winfo_screenheight()
-    x = int(ancho / 2) - int(aplicacion_ancho / 2)
-    y = int(alto / 2) - int(aplicacion_alto / 2) - 40
-    return ventana.geometry(f"{aplicacion_ancho}x{aplicacion_alto}+{x}+{y}")
+def centrar(ventana, w, h):
+    sw = ventana.winfo_screenwidth()
+    sh = ventana.winfo_screenheight()
+    x = int(sw/2 - w/2)
+    y = int(sh/2 - h/2 - 40)
+    ventana.geometry(f"{w}x{h}+{x}+{y}")
 
+def login_ui():
+    root = tk.Tk()
+    root.title("Login")
+    root.configure(bg=COLOR_BG)
+    root.resizable(False, False)
+    centrar(root, 700, 380)
 
-def mostrar_login():
-    ventana_login = tk.Tk()
-    ventana_login.title("Login")
-    ventana_login.resizable(False, False)
-    centrar_ventana(ventana_login, 960, 600)
+    style = ttk.Style()
+    style.theme_use("clam")
+    style.configure("TEntry",
+                    padding=6,
+                    foreground=COLOR_TEXT,
+                    fieldbackground=COLOR_INPUT_BG,
+                    background=COLOR_INPUT_BG,
+                    borderwidth=0,
+                    relief="flat",
+                    font=FUENTE)
 
-    # --- FRAME IZQUIERDO (Imagen/Color) ---
-    frame_izq = tk.Frame(ventana_login, bg="#3b5998")  # Azul estilo Facebook
-    frame_izq.place(x=0, y=0, relwidth=0.6, relheight=1)
+    style.configure("TButton",
+                    padding=8,
+                    foreground=COLOR_TEXT,
+                    background="#5A5AE6",
+                    font=("Segoe UI", 12, "bold"))
+    style.map("TButton",
+              background=[("active", "#4848C9")])
 
-    # --- FRAME DERECHO (Formulario) ---
-    frame_der = tk.Frame(ventana_login, bg="white")
-    frame_der.place(relx=0.6, y=0, relwidth=0.4, relheight=1)
+    style.configure("TCombobox",
+                    padding=6,
+                    foreground=COLOR_TEXT,
+                    fieldbackground=COLOR_INPUT_BG,
+                    background=COLOR_INPUT_BG,
+                    borderwidth=0,
+                    arrowcolor=COLOR_TEXT,
+                    font=FUENTE)
 
-    # Titulo
-    titulo = tk.Label(frame_der, text="Bienvenido", font=("Arial", 24, "bold"), bg="white", fg="#333")
-    titulo.pack(pady=(80, 20))  # 80px arriba, 20px abajo
+    panel = tk.Frame(root, bg=COLOR_PANEL)
+    panel.place(relx=0.5, rely=0.5, anchor="center", width=320, height=300)
 
-    # Usuario
-    lbl_user = tk.Label(frame_der, text="Usuario:", font=("Arial", 12), bg="white", fg="#555")
-    lbl_user.pack(pady=5)
+    titulo = tk.Label(panel, text="Iniciar Sesión", bg=COLOR_PANEL,
+                      fg=COLOR_TEXT, font=("Segoe UI", 18, "bold"))
+    titulo.pack(pady=(20, 25))
 
-    inp_user = tk.Entry(frame_der, font=("Arial", 12), width=30, bd=2, relief="groove")
-    inp_user.pack(pady=5)
+    combo = ttk.Combobox(panel,
+                         values=["Administrador", "Usuario"],
+                         state="readonly")
+    combo.current(1)
+    combo.pack(fill="x", padx=40, pady=10)
 
-    # Contraseña
-    lbl_pass = tk.Label(frame_der, text="Contraseña:", font=("Arial", 12), bg="white", fg="#555")
-    lbl_pass.pack(pady=5)
+    entry_pass = ttk.Entry(panel, show="*")
+    entry_pass.insert(0, "Contraseña")
+    entry_pass.pack(fill="x", padx=40, pady=10)
 
-    inp_pass = tk.Entry(frame_der, font=("Arial", 12), width=30, bd=2, relief="groove", show="*")
-    inp_pass.pack(pady=5)
+    btn = ttk.Button(panel, text="Entrar")
+    btn.pack(fill="x", padx=40, pady=25)
 
-    # Boton
-    btn_login = tk.Button(frame_der, text="Iniciar Sesión", font=("Arial", 12, "bold"), bg="#3b5998", fg="white",
-                          width=25, cursor="hand2")
-    btn_login.pack(pady=30)
+    root.mainloop()
 
-    ventana_login.mainloop()
-
-
-mostrar_login()
+login_ui()
