@@ -7,5 +7,8 @@ def proveedores():
     ventana_proveedores.minsize(450, 600)
     ventana_proveedores.resizable(False, False)
 
+    # GEOMETRIA Y POSICION
+    ventana_proveedores.grid()
+
 if __name__ == "__main__" :
     proveedores()
