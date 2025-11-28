@@ -9,7 +9,7 @@ conexion = mysql.connector.connect(
 
 cursor = conexion.cursor()
 
-cursor.execute("SELECT * FROM employees")
+cursor.execute("SELECT * FROM employees") # Select * from mi_tabla
 resultados = cursor.fetchall()
 for fila in resultados:
     print(fila)
