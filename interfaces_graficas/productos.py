@@ -55,8 +55,7 @@ def productos():
 
     # TREEVIEW (TABLA)
     columnas = ("cantidad", "nombre", "categoria")
-    tabla_productos = ttk.Treeview(frame_tabla, columns=columnas, show="headings",
-                                   yscrollcommand=barra_scroll.set, height=20)
+    tabla_productos = ttk.Treeview(frame_tabla, columns=columnas, show="headings", yscrollcommand=barra_scroll.set, height=20)
 
 
     # CONFIGURAR COLUMNAS

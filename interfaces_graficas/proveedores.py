@@ -54,19 +54,18 @@ def proveedores():
 
 
     # TREEVIEW (TABLA)
-    columnas = ("cantidad", "nombre", "categoria")
-    tabla_productos = ttk.Treeview(frame_tabla, columns=columnas, show="headings",
-                                   yscrollcommand=barra_scroll.set, height=20)
+    columnas = ("id", "nombre", "localidad")
+    tabla_productos = ttk.Treeview(frame_tabla, columns=columnas, show="headings", yscrollcommand=barra_scroll.set, height=20)
 
 
     # CONFIGURAR COLUMNAS
-    tabla_productos.heading("cantidad", text="Cantidad")
+    tabla_productos.heading("id", text="ID")
     tabla_productos.heading("nombre", text="Nombre")
-    tabla_productos.heading("categoria", text="Categoría")
+    tabla_productos.heading("localidad", text="Localidad")
 
-    tabla_productos.column("cantidad", width=100, anchor="center")
+    tabla_productos.column("id", width=100, anchor="center")
     tabla_productos.column("nombre", width=300, anchor="w")
-    tabla_productos.column("categoria", width=200, anchor="w")
+    tabla_productos.column("localidad", width=200, anchor="w")
 
     tabla_productos.pack(side="left", fill="both", expand=True)
     barra_scroll.config(command=tabla_productos.yview)
