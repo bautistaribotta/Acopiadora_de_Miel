@@ -3,14 +3,6 @@ from tkinter import ttk
 from utilidades.configuracion import *
 
 
-def centrar_ventana(ventana, aplicacion_ancho, aplicacion_alto):
-    ancho = ventana.winfo_screenwidth()
-    alto = ventana.winfo_screenheight()
-    x = int(ancho / 2) - int(aplicacion_ancho / 2)
-    y = int(alto / 2) - int(aplicacion_alto / 2) - 40 # Resto 40 para que quede mas arriba
-    ventana.geometry(f"{aplicacion_ancho}x{aplicacion_alto}+{x}+{y}")
-
-
 def mostrar_login():
     ventana_login = tk.Tk()
     ventana_login.title("Login")
@@ -42,11 +34,11 @@ def mostrar_login():
 
     opciones = ["Administrador", "Usuario"]
     opciones_usuario = ttk.Combobox(frame_login_derecha, values=opciones, state="readonly")
-    opciones_usuario.config(font=fuente1)
+    opciones_usuario.config(font=fuente_texto)
     opciones_usuario.current(1)
     opciones_usuario.grid(row=15, column=5, padx=30, pady=10)
 
-    entry_contrasenia = ttk.Entry(frame_login_derecha, width=21, font=fuente1, show="*")
+    entry_contrasenia = ttk.Entry(frame_login_derecha, width=21, font=fuente_texto, show="*")
     entry_contrasenia.grid(row=25, column=5, padx=30, pady=10)
 
     boton_inicio_sesion = ttk.Button(frame_login_derecha, text="Entrar")

@@ -24,23 +24,23 @@ def productos():
 
     # BUSCADOR
     label_buscar = tk.Label(frame_superior, text="Buscar:")
-    label_buscar.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_buscar.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_buscar.pack(side="left", padx=(0, 10))
 
-    entry_buscar = ttk.Entry(frame_superior, font=fuente1, width=25)
+    entry_buscar = ttk.Entry(frame_superior, font=fuente_texto, width=25)
     entry_buscar.pack(side="left")
 
 
     # BOTONES
-    boton_eliminar = tk.Button(frame_superior, text="Eliminar", font=fuente1)
+    boton_eliminar = tk.Button(frame_superior, text="Eliminar", font=fuente_texto)
     boton_eliminar.config(bg=color_secundario, fg=color_primario, width=10)
     boton_eliminar.pack(side="right", padx=(5, 0))
 
-    boton_editar = tk.Button(frame_superior, text="Editar", font=fuente1)
+    boton_editar = tk.Button(frame_superior, text="Editar", font=fuente_texto)
     boton_editar.config(bg=color_secundario, fg=color_primario, width=10)
     boton_editar.pack(side="right", padx=5)
 
-    boton_agregar = tk.Button(frame_superior, text="Añadir", font=fuente1)
+    boton_agregar = tk.Button(frame_superior, text="Añadir", font=fuente_texto)
     boton_agregar.config(bg=color_secundario, fg=color_primario, width=10, command=nuevo_producto)
     boton_agregar.pack(side="right", padx=5)
 
@@ -91,37 +91,37 @@ def nuevo_producto():
 
     # LABEL TITULO
     label_titulo = tk.Label(ventana_nuevo_producto, text="Registrar nuevo producto")
-    label_titulo.config(bg=color_primario, fg=color_secundario, font=("Arial", 16, "bold"))
+    label_titulo.config(bg=color_primario, fg=color_secundario, font=fuente_titulos)
     label_titulo.grid(row=0, column=0, columnspan=2, padx=20 ,pady=(50, 40))
 
 
     # NOMBRE
     label_nombre = tk.Label(ventana_nuevo_producto, text="Nombre:")
-    label_nombre.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_nombre.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_nombre.grid(row=1, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_nombre = tk.Entry(ventana_nuevo_producto, font=fuente1, width=20)
+    entry_nombre = tk.Entry(ventana_nuevo_producto, font=fuente_texto, width=20)
     entry_nombre.grid(row=1, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # CATEGORIA + MENU DESPLEGABLE
     label_categoria = tk.Label(ventana_nuevo_producto, text="Categoria:")
-    label_categoria.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_categoria.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_categoria.grid(row=2, column=0, sticky="e", padx=(20, 10), pady=10)
 
     # ---------------- FALTAN MAS CATEGORIAS ----------------
     lista_categorias = ["Alimento", "Cera", "Estampa", "Insumos", "Madera", "Medicamentos", "Miel"]
     combobox_categoria = ttk.Combobox(ventana_nuevo_producto)
-    combobox_categoria.config(font=fuente1, values=lista_categorias, state="readonly")
+    combobox_categoria.config(font=fuente_texto, values=lista_categorias, state="readonly")
     combobox_categoria.grid(row=2, column=1, sticky="w", padx=(0, 30), pady=10)
 
 
     # CANTIDAD
     label_cantidad = tk.Label(ventana_nuevo_producto, text="Cantidad:")
-    label_cantidad.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_cantidad.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_cantidad.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_cantidad = tk.Entry(ventana_nuevo_producto, font=fuente1, width=20)
+    entry_cantidad = tk.Entry(ventana_nuevo_producto, font=fuente_texto, width=20)
     entry_cantidad.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
@@ -132,11 +132,11 @@ def nuevo_producto():
 
 
     # BOTONES
-    boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente1)
+    boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente_texto)
     boton_guardar.config(bg=color_secundario, fg=color_primario, width=12)
     boton_guardar.pack(side="left", padx=5)
 
-    boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente1)
+    boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
     boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12)
     boton_cancelar.pack(side="left", padx=5)
 

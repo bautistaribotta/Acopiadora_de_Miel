@@ -23,23 +23,23 @@ def clientes():
 
 
     # BUSCADOR
-    label_busqueda = tk.Label(frame_superior, text="Buscar:", font=fuente1, bg=color_primario, fg=color_secundario)
+    label_busqueda = tk.Label(frame_superior, text="Buscar:", font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_busqueda.pack(side="left", padx=(0, 10))
-    barra_busqueda = tk.Entry(frame_superior, bg=color_secundario, fg=color_primario, font=fuente1, width=25)
+    barra_busqueda = tk.Entry(frame_superior, bg=color_secundario, fg=color_primario, font=fuente_texto, width=25)
     barra_busqueda.pack(side="left")
 
 
     # BOTONES
     boton_eliminar = tk.Button(frame_superior, text="Eliminar")
-    boton_eliminar.config(bg=color_secundario, fg=color_primario, width=10, font=fuente1)
+    boton_eliminar.config(bg=color_secundario, fg=color_primario, width=10, font=fuente_texto)
     boton_eliminar.pack(side="right", padx=(5, 0))
 
     boton_editar = tk.Button(frame_superior, text="Editar")
-    boton_editar.config(bg=color_secundario, fg=color_primario, width=10, font=fuente1)
+    boton_editar.config(bg=color_secundario, fg=color_primario, width=10, font=fuente_texto)
     boton_editar.pack(side="right", padx=5)
 
     boton_agregar = tk.Button(frame_superior, text="Agregar")
-    boton_agregar.config(bg=color_secundario, fg=color_primario, text="Añadir", width=10, font=fuente1, command=nuevo_cliente)
+    boton_agregar.config(bg=color_secundario, fg=color_primario, text="Añadir", width=10, font=fuente_texto, command=nuevo_cliente)
     boton_agregar.pack(side="right", padx=5)
 
 
@@ -88,83 +88,83 @@ def nuevo_cliente():
 
     # LABEL TITULO
     label_titulo = tk.Label(ventana_nuevo_cliente, text="Registrar Nuevo Cliente")
-    label_titulo.config(font=("Arial", 16, "bold"), bg=color_primario, fg=color_secundario)
+    label_titulo.config(font=fuente_titulos, bg=color_primario, fg=color_secundario)
     label_titulo.grid(row=0, column=0, columnspan=2, pady=(20, 30), padx=20)
 
 
     # NOMBRE
     label_nombre = tk.Label(ventana_nuevo_cliente, text="Nombre:")
-    label_nombre.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_nombre.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_nombre.grid(row=1, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_nombre = ttk.Entry(ventana_nuevo_cliente, font=fuente1, width=20)
+    entry_nombre = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
     entry_nombre.grid(row=1, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # APELLIDO
     label_apellido = tk.Label(ventana_nuevo_cliente, text="Apellido:")
-    label_apellido.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_apellido.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_apellido.grid(row=2, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_apellido = ttk.Entry(ventana_nuevo_cliente, font=fuente1, width=20)
+    entry_apellido = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
     entry_apellido.grid(row=2, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # TELEFONO
     label_telefono = tk.Label(ventana_nuevo_cliente, text="Teléfono:")
-    label_telefono.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_telefono.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_telefono.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_telefono = ttk.Entry(ventana_nuevo_cliente, font=fuente1, width=20)
+    entry_telefono = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
     entry_telefono.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # LOCALIDAD
     label_localidad = tk.Label(ventana_nuevo_cliente, text="Localidad:")
-    label_localidad.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_localidad.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_localidad.grid(row=4, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_localidad = ttk.Entry(ventana_nuevo_cliente, font=fuente1, width=20)
+    entry_localidad = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
     entry_localidad.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # CALLE
     label_calle = tk.Label(ventana_nuevo_cliente, text="Calle:")
-    label_calle.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_calle.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_calle.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_calle = ttk.Entry(ventana_nuevo_cliente, font=fuente1, width=20)
+    entry_calle = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
     entry_calle.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # FACTURA
     label_factura = tk.Label(ventana_nuevo_cliente, text="Fac. Produccion:")
-    label_factura.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_factura.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_factura.grid(row=6, column=0, sticky="e", padx=(20, 10), pady=10)
 
     opciones_factura = ["No", "Sí"]
     combobox_factura = ttk.Combobox(ventana_nuevo_cliente, values=opciones_factura)
-    combobox_factura.config(state="readonly", font=fuente1, width=18)
+    combobox_factura.config(state="readonly", font=fuente_texto, width=18)
     combobox_factura.current(0)
     combobox_factura.grid(row=6, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # CUIT (inicialmente oculto)
     label_cuit = tk.Label(ventana_nuevo_cliente, text="CUIT:")
-    label_cuit.config(font=fuente1, bg=color_primario, fg=color_secundario)
+    label_cuit.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
 
-    entry_cuit = ttk.Entry(ventana_nuevo_cliente, font=fuente1, width=20)
+    entry_cuit = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
 
 
     # FRAME BOTONES
     frame_botones = tk.Frame(ventana_nuevo_cliente, bg=color_primario)
     frame_botones.grid(row=8, column=0, columnspan=2, pady=(30, 20))
 
-    boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente1)
+    boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente_texto)
     boton_guardar.config(bg=color_secundario, fg=color_primario, width=12)
     boton_guardar.pack(side="left", padx=5)
 
-    boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente1)
+    boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
     boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12)
     boton_cancelar.pack(side="left", padx=5)
 
