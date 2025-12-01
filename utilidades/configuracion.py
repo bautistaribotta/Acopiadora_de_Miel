@@ -13,5 +13,5 @@ color_primario = "#2B303A"
 color_secundario = "#EEE5E9"
 color_terciario = ""
 
-fuente_titulos = "Arial", 12, "bold"
-fuente_texto = "Arial", 16, "bold"
+fuente_titulos = "Arial", 16, "bold"
+fuente_texto = "Arial", 12, "bold"
