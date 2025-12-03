@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 
-def controlador_entry_no_numeros(variable_control , name, index, mode):
+def controlador_entry_no_numeros(variable_control , name=None, index=None, mode=None):
     """
     Funcion para que un entry no pueda recibir un numero
     La siguiente funcion, hace que en tiempo de ejecucion, se muestre un error en caso que
