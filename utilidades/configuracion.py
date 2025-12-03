@@ -8,9 +8,9 @@ def controlador_entry_no_numeros(variable_control , name=None, index=None, mode=
     La siguiente funcion, hace que en tiempo de ejecucion, se muestre un error en caso que
     el usuario coloque un numero dentro de un entry, esto hara que salte una ventana emergente
     variable_control = Un StringVar
-    name = Parametro obligatorio
-    index = Parametro obligatorio
-    mode = Parametro obligatorio
+    name = Parametro obligatorio aunque no se use
+    index = Parametro obligatorio aunque no se use
+    mode = Parametro obligatorio aunque no se use
     """
     texto = variable_control.get()
     for caracter in texto:
