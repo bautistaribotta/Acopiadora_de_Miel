@@ -100,7 +100,7 @@ def nuevo_cliente():
 
     variable_control_entry = tk.StringVar()
     entry_nombre = ttk.Entry(ventana_nuevo_cliente, textvariable=variable_control_entry)
-    variable_control_entry.trace("w", controlador_entry_no_numeros(variable_control_entry))
+    variable_control_entry.trace("w", lambda *args: controlador_entry_no_numeros(variable_control_entry))
     entry_nombre.config(font=fuente_texto, width=20)
     entry_nombre.grid(row=1, column=1, sticky="w", padx=(0, 20), pady=10)
 
