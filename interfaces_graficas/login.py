@@ -56,7 +56,7 @@ def mostrar_login():
 
 
     boton_inicio_sesion = ttk.Button(frame_login_derecha, text="Entrar")
-    boton_inicio_sesion.grid(row=50, column=5,padx=30, pady=10)
+    boton_inicio_sesion.grid(row=50, column=5, padx=30, pady=20)
 
     ventana_login.mainloop()
 
