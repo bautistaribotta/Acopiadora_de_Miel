@@ -9,9 +9,10 @@ from interfaces_graficas.remitos import *
 def pantalla_principal():
     ventana_principal = tk.Tk()
     ventana_principal.configure(bg=color_primario)
-    ventana_principal.state("zoomed")
+    ventana_principal.resizable(False, False)
     ventana_principal.title("Menu principal")
-    ventana_principal.resizable(False, True)
+    ventana_principal.state("zoomed")
+
     # CONFIGURACION DEL GRID DE LA VENTANA
     ventana_principal.grid_rowconfigure(0, weight=0)  # Barra: tamaño fijo
     ventana_principal.grid_rowconfigure(1, weight=1)  # Contenido: se expande

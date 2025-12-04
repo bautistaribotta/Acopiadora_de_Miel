@@ -17,7 +17,6 @@ def controlador_entry_no_numeros(variable_control , name=None, index=None, mode=
             variable_control.set(texto[:-1])
 
 
-
 def centrar_ventana(ventana, aplicacion_ancho, aplicacion_alto):
     ancho = ventana.winfo_screenwidth()
     alto = ventana.winfo_screenheight()
