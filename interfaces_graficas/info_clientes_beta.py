@@ -117,12 +117,12 @@ def informacion_cliente():
     frame_valor_dolar.pack(side="left", padx=10)
     valor_dolar_actual = get_cotizacion_oficial_venta()
 
-    label_valor_dolar = tk.Label(frame_valor_dolar, text=f"{valor_dolar_actual}")
+    label_valor_dolar = tk.Label(frame_valor_dolar, text="Valor Dolar")
     label_valor_dolar.config(bg=color_primario, fg="white", font=("Arial", 10, "bold"))
     label_valor_dolar.pack()
 
-    label_valor_dolar_numero = tk.Label(frame_valor_dolar, text="Valor dolar")
-    label_valor_dolar.config(bg="white", fg="black", font=("Arial", 11, "bold"), width=10, relief="sunken")
+    label_valor_dolar_numero = tk.Label(frame_valor_dolar, text=f"${valor_dolar_actual}")
+    label_valor_dolar_numero.config(bg="white", fg="black", font=("Arial", 11, "bold"), width=10, relief="sunken")
     label_valor_dolar_numero.pack(pady=2)
 
 
