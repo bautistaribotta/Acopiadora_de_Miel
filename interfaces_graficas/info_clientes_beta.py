@@ -94,51 +94,6 @@ def informacion_cliente():
     frame_derecho.pack(side="right", fill="y", padx=(20, 0))
 
 
-    # SUB-FRAME PARA VALORES
-    frame_valores = tk.Frame(frame_derecho, bg=color_primario)
-    frame_valores.pack(side="top", pady=(0, 10))
-
-
-    # VALOR KILO DE MIEL
-    frame_kilo_miel = tk.Frame(frame_valores, bg=color_primario)
-    frame_kilo_miel.pack(side="left", padx=10)
-
-    label_kilo_miel = tk.Label(frame_kilo_miel, text="Kilo de Miel", bg=color_primario, fg="white",
-                               font=("Arial", 10, "bold"))
-    label_kilo_miel.pack()
-
-    label_valor_kilo_miel = tk.Label(frame_kilo_miel, text="---", bg="white", fg="black", font=("Arial", 11, "bold"),
-                                     width=10, relief="sunken")
-    label_valor_kilo_miel.pack(pady=2)
-
-
-    # VALOR DOLAR
-    frame_valor_dolar = tk.Frame(frame_valores, bg=color_primario)
-    frame_valor_dolar.pack(side="left", padx=10)
-    valor_dolar_actual = get_cotizacion_oficial_venta()
-
-    label_valor_dolar = tk.Label(frame_valor_dolar, text="Valor Dolar")
-    label_valor_dolar.config(bg=color_primario, fg="white", font=("Arial", 10, "bold"))
-    label_valor_dolar.pack()
-
-    label_valor_dolar_numero = tk.Label(frame_valor_dolar, text=f"${valor_dolar_actual}")
-    label_valor_dolar_numero.config(bg="white", fg="black", font=("Arial", 11, "bold"), width=10, relief="sunken")
-    label_valor_dolar_numero.pack(pady=2)
-
-
-    # PESOS ARGENTINOS
-    frame_pesos_argentinos = tk.Frame(frame_valores, bg=color_primario)
-    frame_pesos_argentinos.pack(side="left", padx=10)
-
-    label_pesos_argentinos = tk.Label(frame_pesos_argentinos, text="Pesos Argentinos", bg=color_primario, fg="white",
-                                      font=("Arial", 10, "bold"))
-    label_pesos_argentinos.pack()
-
-    label_valor_pesos_argentinos = tk.Label(frame_pesos_argentinos, text="---", bg="white", fg="black",
-                                            font=("Arial", 11, "bold"), width=10, relief="sunken")
-    label_valor_pesos_argentinos.pack(pady=2)
-
-
     # SUB-FRAME PARA BOTONES
     frame_botones = tk.Frame(frame_derecho, bg=color_primario)
     frame_botones.pack(side="top", fill="x", pady=5)
