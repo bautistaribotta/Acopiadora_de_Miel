@@ -90,7 +90,6 @@ def informacion_cliente():
 
 
     # --- SUB-FRAME DERECHO (Botones) ---
-    # expand=False para que no robe espacio a los datos. fill="y" para centrar verticalmente si el frame superior crece.
     frame_derecho = tk.Frame(frame_superior, bg=color_primario)
     frame_derecho.pack(side="right", fill="y", expand=False, padx=(30, 0))
 
@@ -101,21 +100,16 @@ def informacion_cliente():
     frame_botones = tk.Frame(frame_derecho, bg=color_primario)
     frame_botones.grid(row=0, column=0)
 
-    # BOTONES (Verticales o agrupados, aquí mantengo el estilo horizontal compacto o vertical según prefieras)
-    # Dado que "achicaste" el espacio derecho, un stack vertical o una grilla compacta va bien.
-    # Siguiendo tu estilo anterior (uno al lado del otro), pero más ajustados:
 
-    # BOTON NUEVA
+    # BOTONES
     boton_nueva = tk.Button(frame_botones, text="Nueva", font=fuente_texto, bg=color_secundario, fg=color_primario,
                             width=10, cursor="hand2")
     boton_nueva.pack(side="left", padx=5)
 
-    # BOTON EDITAR
     boton_editar = tk.Button(frame_botones, text="Editar", font=fuente_texto, bg=color_secundario, fg=color_primario,
                              width=10, cursor="hand2")
     boton_editar.pack(side="left", padx=5)
 
-    # BOTON ELIMINAR
     boton_eliminar = tk.Button(frame_botones, text="Eliminar", font=fuente_texto, bg=color_secundario, fg=color_primario,
                                width=10, cursor="hand2")
     boton_eliminar.pack(side="left", padx=5)
