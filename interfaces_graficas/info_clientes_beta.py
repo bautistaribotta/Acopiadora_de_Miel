@@ -1,3 +1,4 @@
+import tkinter as tk
 from tkinter import ttk
 from utilidades.configuracion import *
 
@@ -13,117 +14,111 @@ def informacion_cliente():
     centrar_ventana(ventana_info_cliente, ancho_ventana, alto_ventana)
 
 
-    # --- FRAME SUPERIOR (Datos y Valores) ---
+    # --- FRAME SUPERIOR (Datos y Botones) ---
+    # fill="x" para que ocupe el ancho, pero height fijo o dinámico según contenido
     frame_superior = tk.Frame(ventana_info_cliente, bg=color_primario)
-    frame_superior.pack(side="top", fill="x", expand=False, padx=20, pady=5)
+    frame_superior.pack(side="top", fill="x", padx=20, pady=10)
 
 
     # --- SUB-FRAME DATOS DEL CLIENTE (Izquierda) ---
+    # expand=True para que tome todo el espacio extra dejado por los botones
     frame_datos = tk.Frame(frame_superior, bg=color_primario)
     frame_datos.pack(side="left", fill="both", expand=True)
 
 
+    # --- FILA 0: ID | Nombre | Apellido ---
+
     # ID
     label_id_titulo = tk.Label(frame_datos, text="ID:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
-    label_id_titulo.grid(row=0, column=0, sticky="w", pady=1, padx=(10, 5))
+    label_id_titulo.grid(row=0, column=0, sticky="w", pady=5, padx=(0, 5))
     label_id_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_id_valor.grid(row=0, column=1, sticky="w", pady=1, padx=(0, 30))
-
-
-    # TELEFONO
-    label_telefono_titulo = tk.Label(frame_datos, text="Telefono:", bg=color_primario, fg="white",
-                                     font=("Arial", 10, "bold"))
-    label_telefono_titulo.grid(row=0, column=2, sticky="w", pady=1, padx=(10, 5))
-    label_telefono_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_telefono_valor.grid(row=0, column=3, sticky="w", pady=1, padx=(0, 30))
-
+    label_id_valor.grid(row=0, column=1, sticky="w", pady=5, padx=(0, 20))
 
     # NOMBRE
-    label_nombre_titulo = tk.Label(frame_datos, text="Nombre:", bg=color_primario, fg="white",
-                                   font=("Arial", 10, "bold"))
-    label_nombre_titulo.grid(row=1, column=0, sticky="w", pady=1, padx=(10, 5))
+    label_nombre_titulo = tk.Label(frame_datos, text="Nombre:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
+    label_nombre_titulo.grid(row=0, column=2, sticky="w", pady=5, padx=(10, 5))
     label_nombre_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_nombre_valor.grid(row=1, column=1, sticky="w", pady=1, padx=(0, 30))
-
+    label_nombre_valor.grid(row=0, column=3, sticky="w", pady=5, padx=(0, 20))
 
     # APELLIDO
-    label_apellido_titulo = tk.Label(frame_datos, text="Apellido:", bg=color_primario, fg="white",
-                                     font=("Arial", 10, "bold"))
-    label_apellido_titulo.grid(row=1, column=2, sticky="w", pady=1, padx=(10, 5))
+    label_apellido_titulo = tk.Label(frame_datos, text="Apellido:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
+    label_apellido_titulo.grid(row=0, column=4, sticky="w", pady=5, padx=(10, 5))
     label_apellido_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_apellido_valor.grid(row=1, column=3, sticky="w", pady=1, padx=(0, 30))
+    label_apellido_valor.grid(row=0, column=5, sticky="w", pady=5, padx=(0, 0))
 
+
+    # --- FILA 1: Telefono | Localidad | Calle ---
+
+    # TELEFONO
+    label_telefono_titulo = tk.Label(frame_datos, text="Teléfono:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
+    label_telefono_titulo.grid(row=1, column=0, sticky="w", pady=5, padx=(0, 5))
+    label_telefono_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
+    label_telefono_valor.grid(row=1, column=1, sticky="w", pady=5, padx=(0, 20))
 
     # LOCALIDAD
-    label_localidad_titulo = tk.Label(frame_datos, text="Localidad:", bg=color_primario, fg="white",
-                                      font=("Arial", 10, "bold"))
-    label_localidad_titulo.grid(row=2, column=0, sticky="w", pady=1, padx=(10, 5))
+    label_localidad_titulo = tk.Label(frame_datos, text="Localidad:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
+    label_localidad_titulo.grid(row=1, column=2, sticky="w", pady=5, padx=(10, 5))
     label_localidad_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_localidad_valor.grid(row=2, column=1, sticky="w", pady=1, padx=(0, 30))
-
+    label_localidad_valor.grid(row=1, column=3, sticky="w", pady=5, padx=(0, 20))
 
     # CALLE
     label_calle_titulo = tk.Label(frame_datos, text="Calle:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
-    label_calle_titulo.grid(row=2, column=2, sticky="w", pady=1, padx=(10, 5))
+    label_calle_titulo.grid(row=1, column=4, sticky="w", pady=5, padx=(10, 5))
     label_calle_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_calle_valor.grid(row=2, column=3, sticky="w", pady=1, padx=(0, 30))
+    label_calle_valor.grid(row=1, column=5, sticky="w", pady=5, padx=(0, 0))
 
+
+    # --- FILA 2: Factura | CUIT ---
 
     # FACTURA
-    label_factura_titulo = tk.Label(frame_datos, text="Factura (Si/No):", bg=color_primario, fg="white",
-                                    font=("Arial", 10, "bold"))
-    label_factura_titulo.grid(row=3, column=0, sticky="w", pady=1, padx=(10, 5))
+    label_factura_titulo = tk.Label(frame_datos, text="Factura:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
+    label_factura_titulo.grid(row=2, column=0, sticky="w", pady=5, padx=(0, 5))
     label_factura_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_factura_valor.grid(row=3, column=1, sticky="w", pady=1, padx=(0, 30))
-
+    label_factura_valor.grid(row=2, column=1, sticky="w", pady=5, padx=(0, 20))
 
     # CUIT
     label_cuit_titulo = tk.Label(frame_datos, text="CUIT:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
-    label_cuit_titulo.grid(row=3, column=2, sticky="w", pady=1, padx=(10, 5))
+    label_cuit_titulo.grid(row=2, column=2, sticky="w", pady=5, padx=(10, 5))
     label_cuit_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
-    label_cuit_valor.grid(row=3, column=3, sticky="w", pady=1, padx=(0, 30))
+    label_cuit_valor.grid(row=2, column=3, sticky="w", pady=5, padx=(0, 20))
 
 
-    # Configurar columnas para que ocupen espacio
+    # Configuración de pesos para que las columnas de valores se expandan si sobra espacio
     frame_datos.grid_columnconfigure(1, weight=1)
     frame_datos.grid_columnconfigure(3, weight=1)
+    frame_datos.grid_columnconfigure(5, weight=1)
 
 
-    # --- SUB-FRAME DERECHO (Valores y Botones) ---
+    # --- SUB-FRAME DERECHO (Botones) ---
+    # expand=False para que no robe espacio a los datos. fill="y" para centrar verticalmente si el frame superior crece.
     frame_derecho = tk.Frame(frame_superior, bg=color_primario)
-    frame_derecho.pack(side="right", fill="y", padx=(20, 0))
+    frame_derecho.pack(side="right", fill="y", expand=False, padx=(30, 0))
 
+    # Usamos grid dentro del frame derecho para centrar el bloque de botones verticalmente
+    frame_derecho.grid_columnconfigure(0, weight=1)
+    frame_derecho.grid_rowconfigure(0, weight=1)
 
-    # SUB-FRAME PARA BOTONES
     frame_botones = tk.Frame(frame_derecho, bg=color_primario)
-    frame_botones.pack(side="top", fill="x", pady=5)
+    frame_botones.grid(row=0, column=0)
 
+    # BOTONES (Verticales o agrupados, aquí mantengo el estilo horizontal compacto o vertical según prefieras)
+    # Dado que "achicaste" el espacio derecho, un stack vertical o una grilla compacta va bien.
+    # Siguiendo tu estilo anterior (uno al lado del otro), pero más ajustados:
 
     # BOTON NUEVA
-    frame_boton_nueva = tk.Frame(frame_botones, bg=color_primario)
-    frame_boton_nueva.pack(side="left", padx=10, expand=True, fill="x")
-
-    boton_nueva = tk.Button(frame_boton_nueva, text="Nueva", font=("Arial", 10, "bold"), bg="white", fg="black",
-                            cursor="hand2")
-    boton_nueva.pack(fill="x")
-
+    boton_nueva = tk.Button(frame_botones, text="Nueva", font=fuente_texto, bg=color_secundario, fg=color_primario,
+                            width=10, cursor="hand2")
+    boton_nueva.pack(side="left", padx=5)
 
     # BOTON EDITAR
-    frame_boton_editar = tk.Frame(frame_botones, bg=color_primario)
-    frame_boton_editar.pack(side="left", padx=10, expand=True, fill="x")
-
-    boton_editar = tk.Button(frame_boton_editar, text="Editar", font=("Arial", 10, "bold"), bg="white", fg="black",
-                             cursor="hand2")
-    boton_editar.pack(fill="x")
-
+    boton_editar = tk.Button(frame_botones, text="Editar", font=fuente_texto, bg=color_secundario, fg=color_primario,
+                             width=10, cursor="hand2")
+    boton_editar.pack(side="left", padx=5)
 
     # BOTON ELIMINAR
-    frame_boton_eliminar = tk.Frame(frame_botones, bg=color_primario)
-    frame_boton_eliminar.pack(side="left", padx=10, expand=True, fill="x")
-
-    boton_eliminar = tk.Button(frame_boton_eliminar, text="Eliminar", font=("Arial", 10, "bold"), bg="white",
-                               fg="black", cursor="hand2")
-    boton_eliminar.pack(fill="x")
+    boton_eliminar = tk.Button(frame_botones, text="Eliminar", font=fuente_texto, bg=color_secundario, fg=color_primario,
+                               width=10, cursor="hand2")
+    boton_eliminar.pack(side="left", padx=5)
 
 
     # --- FRAME MEDIO (Tabla Debe/Haber) ---
