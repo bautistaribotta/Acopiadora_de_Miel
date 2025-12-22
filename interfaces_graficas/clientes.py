@@ -31,15 +31,18 @@ def clientes():
 
     # BOTONES
     boton_eliminar = tk.Button(frame_superior, text="Eliminar")
-    boton_eliminar.config(bg=color_secundario, fg=color_primario, width=10, font=fuente_texto)
+    boton_eliminar.config(bg=color_secundario, fg=color_primario, width=10,
+                          font=fuente_texto, cursor="hand2")
     boton_eliminar.pack(side="right", padx=(5, 0))
 
     boton_editar = tk.Button(frame_superior, text="Editar")
-    boton_editar.config(bg=color_secundario, fg=color_primario, width=10, font=fuente_texto, command=editar_cliente)
+    boton_editar.config(bg=color_secundario, fg=color_primario, width=10,
+                        font=fuente_texto, command=editar_cliente, cursor="hand2")
     boton_editar.pack(side="right", padx=5)
 
     boton_agregar = tk.Button(frame_superior, text="Agregar")
-    boton_agregar.config(bg=color_secundario, fg=color_primario, text="Añadir", width=10, font=fuente_texto, command=nuevo_cliente)
+    boton_agregar.config(bg=color_secundario, fg=color_primario, text="Añadir", width=10,
+                         font=fuente_texto, command=nuevo_cliente, cursor="hand2")
     boton_agregar.pack(side="right", padx=5)
 
 
@@ -164,11 +167,11 @@ def nuevo_cliente():
     frame_botones.grid(row=8, column=0, columnspan=2, pady=(30, 20))
 
     boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente_texto)
-    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_cancelar.pack(side="left", padx=5)
 
     # Función para mostrar/ocultar CUIT según la selección del combobox
@@ -275,11 +278,11 @@ def editar_cliente():
     frame_botones.grid(row=8, column=0, columnspan=2, pady=(30, 20))
 
     boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente_texto)
-    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_cancelar.pack(side="left", padx=5)
 
     # Función para mostrar/ocultar CUIT según la selección del combobox
@@ -307,13 +310,11 @@ def informacion_cliente():
 
 
     # --- FRAME SUPERIOR (Datos y Botones) ---
-    # fill="x" para que ocupe el ancho, pero height fijo o dinámico según contenido
     frame_superior = tk.Frame(ventana_info_cliente, bg=color_primario)
     frame_superior.pack(side="top", fill="x", padx=20, pady=10)
 
 
-    # --- SUB-FRAME DATOS DEL CLIENTE (Izquierda) ---
-    # expand=True para que tome todo el espacio extra dejado por los botones
+    # --- SUB-FRAME DATOS DEL CLIENTE --- (Izquierda)
     frame_datos = tk.Frame(frame_superior, bg=color_primario)
     frame_datos.pack(side="left", fill="both", expand=True)
 
@@ -347,11 +348,13 @@ def informacion_cliente():
     label_telefono_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_telefono_valor.grid(row=1, column=1, sticky="w", pady=5, padx=(0, 20))
 
+
     # LOCALIDAD
     label_localidad_titulo = tk.Label(frame_datos, text="Localidad:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
     label_localidad_titulo.grid(row=1, column=2, sticky="w", pady=5, padx=(10, 5))
     label_localidad_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_localidad_valor.grid(row=1, column=3, sticky="w", pady=5, padx=(0, 20))
+
 
     # CALLE
     label_calle_titulo = tk.Label(frame_datos, text="Calle:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
@@ -368,6 +371,7 @@ def informacion_cliente():
     label_factura_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_factura_valor.grid(row=2, column=1, sticky="w", pady=5, padx=(0, 20))
 
+
     # CUIT
     label_cuit_titulo = tk.Label(frame_datos, text="CUIT:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
     label_cuit_titulo.grid(row=2, column=2, sticky="w", pady=5, padx=(10, 5))
@@ -381,35 +385,29 @@ def informacion_cliente():
     frame_datos.grid_columnconfigure(5, weight=1)
 
 
-    # --- SUB-FRAME DERECHO (Botones) ---
-    # expand=False para que no robe espacio a los datos. fill="y" para centrar verticalmente si el frame superior crece.
+    # --- SUB-FRAME BOTONES --- (Derecha)
     frame_derecho = tk.Frame(frame_superior, bg=color_primario)
     frame_derecho.pack(side="right", fill="y", expand=False, padx=(30, 0))
-
-    # Usamos grid dentro del frame derecho para centrar el bloque de botones verticalmente
     frame_derecho.grid_columnconfigure(0, weight=1)
     frame_derecho.grid_rowconfigure(0, weight=1)
 
+
+    # FRAME BOTONES
     frame_botones = tk.Frame(frame_derecho, bg=color_primario)
     frame_botones.grid(row=0, column=0)
 
-    # BOTONES (Verticales o agrupados, aquí mantengo el estilo horizontal compacto o vertical según prefieras)
-    # Dado que "achicaste" el espacio derecho, un stack vertical o una grilla compacta va bien.
-    # Siguiendo tu estilo anterior (uno al lado del otro), pero más ajustados:
 
-    # BOTON NUEVA
-    boton_nueva = tk.Button(frame_botones, text="Nueva", font=fuente_texto, bg=color_secundario, fg=color_primario,
-                            width=10, cursor="hand2")
+    # BOTONES
+    boton_nueva = tk.Button(frame_botones, text="Nueva", font=fuente_texto,
+                            bg=color_secundario, fg=color_primario,width=10, cursor="hand2")
     boton_nueva.pack(side="left", padx=5)
 
-    # BOTON EDITAR
-    boton_editar = tk.Button(frame_botones, text="Editar", font=fuente_texto, bg=color_secundario, fg=color_primario,
-                             width=10, cursor="hand2")
+    boton_editar = tk.Button(frame_botones, text="Editar", font=fuente_texto,
+                             bg=color_secundario, fg=color_primario, width=10, cursor="hand2")
     boton_editar.pack(side="left", padx=5)
 
-    # BOTON ELIMINAR
-    boton_eliminar = tk.Button(frame_botones, text="Eliminar", font=fuente_texto, bg=color_secundario, fg=color_primario,
-                               width=10, cursor="hand2")
+    boton_eliminar = tk.Button(frame_botones, text="Eliminar", font=fuente_texto,
+                               bg=color_secundario, fg=color_primario,width=10, cursor="hand2")
     boton_eliminar.pack(side="left", padx=5)
 
 

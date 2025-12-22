@@ -33,15 +33,15 @@ def productos():
 
     # BOTONES
     boton_eliminar = tk.Button(frame_superior, text="Eliminar", font=fuente_texto)
-    boton_eliminar.config(bg=color_secundario, fg=color_primario, width=10)
+    boton_eliminar.config(bg=color_secundario, fg=color_primario, width=10, cursor="hand2")
     boton_eliminar.pack(side="right", padx=(5, 0))
 
     boton_editar = tk.Button(frame_superior, text="Editar", font=fuente_texto)
-    boton_editar.config(bg=color_secundario, fg=color_primario, width=10, command=editar_producto)
+    boton_editar.config(bg=color_secundario, fg=color_primario, width=10, command=editar_producto, cursor="hand2")
     boton_editar.pack(side="right", padx=5)
 
     boton_agregar = tk.Button(frame_superior, text="Añadir", font=fuente_texto)
-    boton_agregar.config(bg=color_secundario, fg=color_primario, width=10, command=nuevo_producto)
+    boton_agregar.config(bg=color_secundario, fg=color_primario, width=10, command=nuevo_producto, cursor="hand2")
     boton_agregar.pack(side="right", padx=5)
 
 
@@ -142,11 +142,11 @@ def nuevo_producto():
 
     # BOTONES
     boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente_texto)
-    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_cancelar.pack(side="left", padx=5)
 
 
@@ -217,11 +217,11 @@ def editar_producto():
 
     # BOTONES
     boton_guardar = tk.Button(frame_botones, text="Guardar", font=fuente_texto)
-    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_guardar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12)
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
     boton_cancelar.pack(side="left", padx=5)
 
 
