@@ -75,7 +75,7 @@ def nueva_operacion():
     scrollbar_tabla.pack(side="right", fill="y")
 
     # Treeview - Tabla de productos
-    columnas_productos = ("id", "nombre", "categoria", "cantidad", "precio_unitario", "subtotal")
+    columnas_productos = ("id", "nombre", "categoria", "cantidad", "precio_unitario")
     tabla_productos = ttk.Treeview(frame_tree_container, columns=columnas_productos,
                                    show="headings", yscrollcommand=scrollbar_tabla.set, height=10)
 
@@ -85,15 +85,13 @@ def nueva_operacion():
     tabla_productos.heading("categoria", text="Categoría")
     tabla_productos.heading("cantidad", text="Cantidad")
     tabla_productos.heading("precio_unitario", text="Precio Unit.")
-    tabla_productos.heading("subtotal", text="Subtotal")
 
     # Configurar columnas
-    tabla_productos.column("id", width=50, anchor="center")
+    tabla_productos.column("id", width=30, anchor="center")
     tabla_productos.column("nombre", width=200, anchor="w")
     tabla_productos.column("categoria", width=120, anchor="w")
     tabla_productos.column("cantidad", width=80, anchor="center")
     tabla_productos.column("precio_unitario", width=100, anchor="e")
-    tabla_productos.column("subtotal", width=100, anchor="e")
 
     tabla_productos.pack(side="left", fill="both", expand=True)
     scrollbar_tabla.config(command=tabla_productos.yview)
