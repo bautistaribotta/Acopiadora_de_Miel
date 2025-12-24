@@ -220,6 +220,7 @@ def editar_operacion():
                                command=ventana_nueva_operacion.destroy)
     boton_cancelar.pack(side="left", padx=10)
 
+
 if __name__ == "__main__":
     root = tk.Tk()
     root.withdraw()

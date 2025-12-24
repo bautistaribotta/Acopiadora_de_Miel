@@ -135,12 +135,12 @@ def nuevo_cliente():
 
 
     # CALLE
-    label_calle = tk.Label(ventana_nuevo_cliente, text="Calle:")
-    label_calle.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
-    label_calle.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
+    label_direccion = tk.Label(ventana_nuevo_cliente, text="Direccion:")
+    label_direccion.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
+    label_direccion.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_calle = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
-    entry_calle.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
+    entry_direccion = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
+    entry_direccion.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # FACTURA
@@ -171,7 +171,8 @@ def nuevo_cliente():
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12,
+                          cursor="hand2", command=ventana_nuevo_cliente.destroy)
     boton_cancelar.pack(side="left", padx=5)
 
     # Función para mostrar/ocultar CUIT según la selección del combobox
@@ -246,12 +247,12 @@ def editar_cliente():
 
 
     # CALLE
-    label_calle = tk.Label(ventana_editar_cliente, text="Calle:")
-    label_calle.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
-    label_calle.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
+    label_direccion = tk.Label(ventana_editar_cliente, text="Direccion:")
+    label_direccion.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
+    label_direccion.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    entry_calle = ttk.Entry(ventana_editar_cliente, font=fuente_texto, width=20)
-    entry_calle.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
+    entry_direccion = ttk.Entry(ventana_editar_cliente, font=fuente_texto, width=20)
+    entry_direccion.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # FACTURA
@@ -282,7 +283,8 @@ def editar_cliente():
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12,
+                          cursor="hand2", command=ventana_editar_cliente.destroy)
     boton_cancelar.pack(side="left", padx=5)
 
     # Función para mostrar/ocultar CUIT según la selección del combobox

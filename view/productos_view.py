@@ -116,22 +116,31 @@ def nuevo_producto():
     combobox_categoria.grid(row=2, column=1, sticky="w", padx=(0, 30), pady=10)
 
 
+    # UNIDAD DE MEDIDA
+    label_unidad_medida = tk.Label(ventana_nuevo_producto, text="Unidad de medida:")
+    label_unidad_medida.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
+    label_unidad_medida.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
+
+    entry_unidad_medida = tk.Entry(ventana_nuevo_producto, font=fuente_texto, width=20)
+    entry_unidad_medida.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
+
+
     # PRECIO
     label_precio = tk.Label(ventana_nuevo_producto, text="Precio:")
     label_precio.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
-    label_precio.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
+    label_precio.grid(row=4, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_precio = tk.Entry(ventana_nuevo_producto, font=fuente_texto, width=20)
-    entry_precio.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
+    entry_precio.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # CANTIDAD
     label_cantidad = tk.Label(ventana_nuevo_producto, text="Cantidad:")
     label_cantidad.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
-    label_cantidad.grid(row=4, column=0, sticky="e", padx=(20, 10), pady=10)
+    label_cantidad.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_cantidad = tk.Entry(ventana_nuevo_producto, font=fuente_texto, width=20)
-    entry_cantidad.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
+    entry_cantidad.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # FRAME BOTONES
@@ -146,7 +155,8 @@ def nuevo_producto():
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12,
+                          cursor="hand2", command=ventana_nuevo_producto.destroy)
     boton_cancelar.pack(side="left", padx=5)
 
 
@@ -191,22 +201,31 @@ def editar_producto():
     combobox_categoria.grid(row=2, column=1, sticky="w", padx=(0, 30), pady=10)
 
 
+    # UNIDAD DE MEDIDA
+    label_unidad_medida = tk.Label(ventana_editar_producto, text="Unidad de medida:")
+    label_unidad_medida.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
+    label_unidad_medida.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
+
+    entry_unidad_medida = tk.Entry(ventana_editar_producto, font=fuente_texto, width=20)
+    entry_unidad_medida.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
+
+
     # PRECIO
     label_precio = tk.Label(ventana_editar_producto, text="Precio:")
     label_precio.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
-    label_precio.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
+    label_precio.grid(row=4, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_precio = tk.Entry(ventana_editar_producto, font=fuente_texto, width=20)
-    entry_precio.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
+    entry_precio.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # CANTIDAD
     label_cantidad = tk.Label(ventana_editar_producto, text="Cantidad:")
     label_cantidad.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
-    label_cantidad.grid(row=4, column=0, sticky="e", padx=(20, 10), pady=10)
+    label_cantidad.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_cantidad = tk.Entry(ventana_editar_producto, font=fuente_texto, width=20)
-    entry_cantidad.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
+    entry_cantidad.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # FRAME BOTONES
@@ -221,7 +240,8 @@ def editar_producto():
     boton_guardar.pack(side="left", padx=5)
 
     boton_cancelar = tk.Button(frame_botones, text="Cancelar", font=fuente_texto)
-    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12, cursor="hand2")
+    boton_cancelar.config(bg=color_secundario, fg=color_primario, width=12,
+                          cursor="hand2", command=ventana_editar_producto.destroy)
     boton_cancelar.pack(side="left", padx=5)
 
 
