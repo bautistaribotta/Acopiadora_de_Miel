@@ -60,7 +60,7 @@ def informacion_cliente():
     label_localidad_valor.grid(row=1, column=3, sticky="w", pady=5, padx=(0, 20))
 
     # CALLE
-    label_calle_titulo = tk.Label(frame_datos, text="Calle:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
+    label_calle_titulo = tk.Label(frame_datos, text="Direccion:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
     label_calle_titulo.grid(row=1, column=4, sticky="w", pady=5, padx=(10, 5))
     label_calle_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_calle_valor.grid(row=1, column=5, sticky="w", pady=5, padx=(0, 0))

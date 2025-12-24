@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from utilidades.configuracion import *
+from operaciones_view import *
 
 
 def clientes():
@@ -316,7 +317,7 @@ def informacion_cliente():
     frame_superior.pack(side="top", fill="x", padx=20, pady=10)
 
 
-    # --- SUB-FRAME DATOS DEL CLIENTE --- (Izquierda)
+    # --- SUB-FRAME DATOS DEL CLIENTE (Izquierda) ---
     frame_datos = tk.Frame(frame_superior, bg=color_primario)
     frame_datos.pack(side="left", fill="both", expand=True)
 
@@ -350,16 +351,14 @@ def informacion_cliente():
     label_telefono_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_telefono_valor.grid(row=1, column=1, sticky="w", pady=5, padx=(0, 20))
 
-
     # LOCALIDAD
     label_localidad_titulo = tk.Label(frame_datos, text="Localidad:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
     label_localidad_titulo.grid(row=1, column=2, sticky="w", pady=5, padx=(10, 5))
     label_localidad_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_localidad_valor.grid(row=1, column=3, sticky="w", pady=5, padx=(0, 20))
 
-
     # CALLE
-    label_calle_titulo = tk.Label(frame_datos, text="Calle:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
+    label_calle_titulo = tk.Label(frame_datos, text="Direccion:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
     label_calle_titulo.grid(row=1, column=4, sticky="w", pady=5, padx=(10, 5))
     label_calle_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_calle_valor.grid(row=1, column=5, sticky="w", pady=5, padx=(0, 0))
@@ -372,7 +371,6 @@ def informacion_cliente():
     label_factura_titulo.grid(row=2, column=0, sticky="w", pady=5, padx=(0, 5))
     label_factura_valor = tk.Label(frame_datos, text="---", bg=color_primario, fg="white", font=("Arial", 10))
     label_factura_valor.grid(row=2, column=1, sticky="w", pady=5, padx=(0, 20))
-
 
     # CUIT
     label_cuit_titulo = tk.Label(frame_datos, text="CUIT:", bg=color_primario, fg="white", font=("Arial", 10, "bold"))
@@ -387,29 +385,29 @@ def informacion_cliente():
     frame_datos.grid_columnconfigure(5, weight=1)
 
 
-    # --- SUB-FRAME BOTONES --- (Derecha)
+    # --- SUB-FRAME DERECHO (Botones) ---
     frame_derecho = tk.Frame(frame_superior, bg=color_primario)
     frame_derecho.pack(side="right", fill="y", expand=False, padx=(30, 0))
+
+    # Usamos grid dentro del frame derecho para centrar el bloque de botones verticalmente
     frame_derecho.grid_columnconfigure(0, weight=1)
     frame_derecho.grid_rowconfigure(0, weight=1)
 
-
-    # FRAME BOTONES
     frame_botones = tk.Frame(frame_derecho, bg=color_primario)
     frame_botones.grid(row=0, column=0)
 
 
     # BOTONES
-    boton_nueva = tk.Button(frame_botones, text="Nueva", font=fuente_texto,
-                            bg=color_secundario, fg=color_primario,width=10, cursor="hand2")
+    boton_nueva = tk.Button(frame_botones, text="Nueva", font=fuente_texto, bg=color_secundario, fg=color_primario,
+                            width=10, cursor="hand2", command=nueva_operacion)
     boton_nueva.pack(side="left", padx=5)
 
-    boton_editar = tk.Button(frame_botones, text="Editar", font=fuente_texto,
-                             bg=color_secundario, fg=color_primario, width=10, cursor="hand2")
+    boton_editar = tk.Button(frame_botones, text="Editar", font=fuente_texto, bg=color_secundario, fg=color_primario,
+                             width=10, cursor="hand2")
     boton_editar.pack(side="left", padx=5)
 
-    boton_eliminar = tk.Button(frame_botones, text="Eliminar", font=fuente_texto,
-                               bg=color_secundario, fg=color_primario,width=10, cursor="hand2")
+    boton_eliminar = tk.Button(frame_botones, text="Eliminar", font=fuente_texto, bg=color_secundario, fg=color_primario,
+                               width=10, cursor="hand2")
     boton_eliminar.pack(side="left", padx=5)
 
 
