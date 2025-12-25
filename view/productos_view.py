@@ -126,20 +126,26 @@ def nuevo_producto():
 
 
     # PRECIO
-    label_precio = tk.Label(ventana_nuevo_producto, text="Precio:")
+    cmd_validar_precio = ventana_nuevo_producto.register(validar_solo_numeros_punto)
+
+    label_precio = tk.Label(ventana_nuevo_producto, text="Precio por unidad:")
     label_precio.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_precio.grid(row=4, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_precio = tk.Entry(ventana_nuevo_producto, font=fuente_texto, width=20)
+    entry_precio.config(validate="key", validatecommand=(cmd_validar_precio, '%P'))
     entry_precio.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # CANTIDAD
+    cmd_validar_numeros = ventana_nuevo_producto.register(validar_solo_numeros)
+
     label_cantidad = tk.Label(ventana_nuevo_producto, text="Cantidad:")
     label_cantidad.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_cantidad.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_cantidad = tk.Entry(ventana_nuevo_producto, font=fuente_texto, width=20)
+    entry_cantidad.config(validate="key", validatecommand=(cmd_validar_numeros, '%P'))
     entry_cantidad.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
@@ -213,20 +219,26 @@ def editar_producto():
 
 
     # PRECIO
-    label_precio = tk.Label(ventana_editar_producto, text="Precio:")
+    cmd_validar_precio = ventana_editar_producto.register(validar_solo_numeros_punto)
+
+    label_precio = tk.Label(ventana_editar_producto, text="Precio por unidad:")
     label_precio.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_precio.grid(row=4, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_precio = tk.Entry(ventana_editar_producto, font=fuente_texto, width=20)
+    entry_precio.config(validate="key", validatecommand=(cmd_validar_precio, '%P'))
     entry_precio.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # CANTIDAD
+    cmd_validar_numeros = ventana_editar_producto.register(validar_solo_numeros)
+
     label_cantidad = tk.Label(ventana_editar_producto, text="Cantidad:")
     label_cantidad.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_cantidad.grid(row=5, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_cantidad = tk.Entry(ventana_editar_producto, font=fuente_texto, width=20)
+    entry_cantidad.config(validate="key", validatecommand=(cmd_validar_numeros, '%P'))
     entry_cantidad.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
 
 

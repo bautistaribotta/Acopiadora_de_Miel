@@ -97,32 +97,40 @@ def nuevo_cliente():
 
 
     # NOMBRE
+    cmd_validar_letra = ventana_nuevo_cliente.register(validar_solo_letras)
+
     label_nombre = tk.Label(ventana_nuevo_cliente, text="Nombre:")
     label_nombre.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_nombre.grid(row=1, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    variable_control_entry = tk.StringVar()
-    entry_nombre = ttk.Entry(ventana_nuevo_cliente, textvariable=variable_control_entry)
-    variable_control_entry.trace("w", lambda *args: controlador_entry_no_numeros(variable_control_entry))
-    entry_nombre.config(font=fuente_texto, width=20)
+    entry_nombre = ttk.Entry(ventana_nuevo_cliente)
+    entry_nombre.config(font=fuente_texto, width=20,
+                        validate="key", validatecommand=(cmd_validar_letra, '%P'))
     entry_nombre.grid(row=1, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # APELLIDO
+    cmd_validar_letra = ventana_nuevo_cliente.register(validar_solo_letras)
+
     label_apellido = tk.Label(ventana_nuevo_cliente, text="Apellido:")
     label_apellido.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_apellido.grid(row=2, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_apellido = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
+    entry_apellido.config (font=fuente_texto, width=20,
+                        validate="key", validatecommand=(cmd_validar_letra, '%P'))
     entry_apellido.grid(row=2, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
     # TELEFONO
+    cmd_validar_numeros = ventana_nuevo_cliente.register(validar_solo_numeros)
+
     label_telefono = tk.Label(ventana_nuevo_cliente, text="Teléfono:")
     label_telefono.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_telefono.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_telefono = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
+    entry_telefono.config(validate="key", validatecommand=(cmd_validar_numeros, '%P'))
     entry_telefono.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
@@ -156,11 +164,14 @@ def nuevo_cliente():
     combobox_factura.grid(row=6, column=1, sticky="w", padx=(0, 20), pady=10)
 
 
-    # CUIT (inicialmente oculto)
+    # CUIT (Inicialmente oculto)
+    cmd_validar_numeros = ventana_nuevo_cliente.register(validar_solo_numeros)
+
     label_cuit = tk.Label(ventana_nuevo_cliente, text="CUIT:")
     label_cuit.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
 
     entry_cuit = ttk.Entry(ventana_nuevo_cliente, font=fuente_texto, width=20)
+    entry_cuit.config(validate="key", validatecommand=(cmd_validar_numeros, '%P'))
 
 
     # FRAME BOTONES
@@ -196,47 +207,49 @@ def editar_cliente():
     ventana_editar_cliente.geometry("400x600+120+85")
     ventana_editar_cliente.resizable(False, False)
 
-
     # CONFIGURACION DEL GRID
     ventana_editar_cliente.grid_columnconfigure(0, weight=1)
     ventana_editar_cliente.grid_columnconfigure(1, weight=2)
 
-
     # LABEL TITULO
-    label_titulo = tk.Label(ventana_editar_cliente, text="EDITAR CLIENTE")
+    label_titulo = tk.Label(ventana_editar_cliente, text="REGISTRAR CLIENTE")
     label_titulo.config(font=fuente_titulos, bg=color_primario, fg=color_secundario)
     label_titulo.grid(row=0, column=0, columnspan=2, pady=(50, 40), padx=20)
 
-
     # NOMBRE
+    cmd_validar_letra = ventana_editar_cliente.register(validar_solo_letras)
+
     label_nombre = tk.Label(ventana_editar_cliente, text="Nombre:")
     label_nombre.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_nombre.grid(row=1, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    variable_control_entry = tk.StringVar()
-    entry_nombre = ttk.Entry(ventana_editar_cliente, textvariable=variable_control_entry)
-    variable_control_entry.trace("w", lambda *args: controlador_entry_no_numeros(variable_control_entry))
-    entry_nombre.config(font=fuente_texto, width=20)
+    entry_nombre = ttk.Entry(ventana_editar_cliente)
+    entry_nombre.config(font=fuente_texto, width=20,
+                        validate="key", validatecommand=(cmd_validar_letra, '%P'))
     entry_nombre.grid(row=1, column=1, sticky="w", padx=(0, 20), pady=10)
 
-
     # APELLIDO
+    cmd_validar_letra = ventana_editar_cliente.register(validar_solo_letras)
+
     label_apellido = tk.Label(ventana_editar_cliente, text="Apellido:")
     label_apellido.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_apellido.grid(row=2, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_apellido = ttk.Entry(ventana_editar_cliente, font=fuente_texto, width=20)
+    entry_apellido.config(font=fuente_texto, width=20,
+                          validate="key", validatecommand=(cmd_validar_letra, '%P'))
     entry_apellido.grid(row=2, column=1, sticky="w", padx=(0, 20), pady=10)
 
-
     # TELEFONO
+    cmd_validar_numeros = ventana_editar_cliente.register(validar_solo_numeros)
+
     label_telefono = tk.Label(ventana_editar_cliente, text="Teléfono:")
     label_telefono.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_telefono.grid(row=3, column=0, sticky="e", padx=(20, 10), pady=10)
 
     entry_telefono = ttk.Entry(ventana_editar_cliente, font=fuente_texto, width=20)
+    entry_telefono.config(validate="key", validatecommand=(cmd_validar_numeros, '%P'))
     entry_telefono.grid(row=3, column=1, sticky="w", padx=(0, 20), pady=10)
-
 
     # LOCALIDAD
     label_localidad = tk.Label(ventana_editar_cliente, text="Localidad:")
@@ -246,7 +259,6 @@ def editar_cliente():
     entry_localidad = ttk.Entry(ventana_editar_cliente, font=fuente_texto, width=20)
     entry_localidad.grid(row=4, column=1, sticky="w", padx=(0, 20), pady=10)
 
-
     # CALLE
     label_direccion = tk.Label(ventana_editar_cliente, text="Direccion:")
     label_direccion.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
@@ -254,7 +266,6 @@ def editar_cliente():
 
     entry_direccion = ttk.Entry(ventana_editar_cliente, font=fuente_texto, width=20)
     entry_direccion.grid(row=5, column=1, sticky="w", padx=(0, 20), pady=10)
-
 
     # FACTURA
     label_factura = tk.Label(ventana_editar_cliente, text="Fac. Produccion:")
@@ -267,13 +278,14 @@ def editar_cliente():
     combobox_factura.current(0)
     combobox_factura.grid(row=6, column=1, sticky="w", padx=(0, 20), pady=10)
 
+    # CUIT (Inicialmente oculto)
+    cmd_validar_numeros = ventana_editar_cliente.register(validar_solo_numeros)
 
-    # CUIT (inicialmente oculto)
     label_cuit = tk.Label(ventana_editar_cliente, text="CUIT:")
     label_cuit.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
 
     entry_cuit = ttk.Entry(ventana_editar_cliente, font=fuente_texto, width=20)
-
+    entry_cuit.config(validate="key", validatecommand=(cmd_validar_numeros, '%P'))
 
     # FRAME BOTONES
     frame_botones = tk.Frame(ventana_editar_cliente, bg=color_primario)

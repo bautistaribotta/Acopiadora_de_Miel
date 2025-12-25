@@ -3,19 +3,43 @@ import requests
 from tkinter import messagebox
 
 
-def controlador_entry_no_numeros(variable_control , name=None, index=None, mode=None):
-    """
-    Funcion para que un entry no pueda recibir un numero
-    variable_control = Un StringVar
-    name = Parametro obligatorio aunque no se use
-    index = Parametro obligatorio aunque no se use
-    mode = Parametro obligatorio aunque no se use
-    """
-    texto = variable_control.get()
-    for caracter in texto:
-        if caracter.isdigit():
-            messagebox.showwarning("Error nombre", "El nombre no puede contener numeros")
-            variable_control.set(texto[:-1])
+def validar_solo_letras(texto_nuevo):
+    # 1. Permito borrar y dejar el texto vacio
+    if texto_nuevo == "":
+        return True
+
+    # 2. Reviso cada caracter
+    for char in texto_nuevo:
+        # Si el caracter NO es letra Y NO es espacio: ERROR
+        if not (char.isalpha() or char.isspace()):
+            messagebox.showwarning("Caracter inválido", "Solo se permiten letras")
+            return False
+    return True
+
+
+def validar_solo_numeros_punto(texto_nuevo):
+    if texto_nuevo == "":
+        return True
+    # Pregunto si cuando le quito el punto al texto quedan solo numeros y luego cuento la cantidad de "."
+    if texto_nuevo.replace(".", "", 1).isdigit() and texto_nuevo.count(".") <= 1:
+        return True
+    else:
+        messagebox.showwarning("Caracter inválido", "Solo se permiten números y un punto decimal.")
+        return False
+
+
+def validar_solo_numeros(texto_nuevo):
+    # 1. Permito borrar y dejar el texto vacio
+    if texto_nuevo == "":
+        return True
+
+    # 2. Reviso cada caracter
+    for char in texto_nuevo:
+        # Si el caracter NO es letra Y NO es espacio: ERROR
+        if not (char.isdigit() or char.isspace()):
+            messagebox.showwarning("Caracter inválido", "Solo se permiten numeros")
+            return False
+    return True
 
 
 def centrar_ventana(ventana, aplicacion_ancho, aplicacion_alto):
