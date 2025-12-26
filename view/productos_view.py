@@ -1,5 +1,7 @@
 from tkinter import ttk
-from utilidades.configuracion import *
+from estilos_view import *
+from controller.validaciones import *
+import tkinter as tk
 
 
 def productos():

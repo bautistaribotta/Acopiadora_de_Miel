@@ -1,7 +1,6 @@
-import tkinter as tk
-from tkinter import ttk
-from utilidades.configuracion import *
 from operaciones_view import *
+from estilos_view import *
+from controller.validaciones import *
 
 
 def clientes():

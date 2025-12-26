@@ -1,5 +1,3 @@
-from tkinter import ttk
-from utilidades.configuracion import *
 from view.operaciones_view import *
 
 

@@ -1,5 +1,5 @@
 import tkinter as tk
-from utilidades.configuracion import *
+from estilos_view import *
 
 
 def remitos():
