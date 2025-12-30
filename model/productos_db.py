@@ -41,7 +41,7 @@ def buscar_producto_id(id_producto):
     return resultados
 
 
-def insertar_producto(nombre, categoria, unidad_medida, precio, cantidad):
+def nuevo_producto(nombre, categoria, unidad_medida, precio, cantidad):
     conexion = mysql.connector.connect(
         host="localhost",
         user="root",
@@ -56,6 +56,25 @@ def insertar_producto(nombre, categoria, unidad_medida, precio, cantidad):
     cursor.execute(instruccion_sql, valores)
     conexion.commit()
 
+    cursor.close()
+    conexion.close()
+
+
+def editar_producto(id_producto, nombre, categoria, unidad_medida, precio, cantidad):
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="southern_honey_group"
+    )
+    cursor = conexion.cursor()
+
+    instruccion_sql = ("UPDATE productos SET nombre=%s, categoria=%s, unidad_medida=%s, "
+                       "precio=%s, cantidad=%s WHERE id = %s")
+    valores = (nombre, categoria, unidad_medida, precio, cantidad, id_producto)
+    cursor.execute(instruccion_sql, valores)
+
+    conexion.commit()
     cursor.close()
     conexion.close()
 

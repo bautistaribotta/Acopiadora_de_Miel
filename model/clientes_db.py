@@ -39,7 +39,7 @@ def buscar_cliente_id(id_cliente):
     return resultados
 
 
-def insertar_cliente(nombre, apellido, telefono, localidad, direccion, factura_produccion, cuit):
+def nuevo_cliente(nombre, apellido, telefono, localidad, direccion, factura_produccion, cuit):
     conexion = mysql.connector.connect(
         host="localhost",
         user="root",
@@ -55,6 +55,25 @@ def insertar_cliente(nombre, apellido, telefono, localidad, direccion, factura_p
     cursor.execute(instruccion_sql, valores)
     conexion.commit()
 
+    cursor.close()
+    conexion.close()
+
+
+def editar_cliente(id_cliente, nombre, apellido, telefono, localidad, direccion, factura_produccion, cuit):
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="southern_honey_group"
+    )
+    cursor = conexion.cursor()
+
+    intruccion_sql = ("UPDATE clientes SET nombre=%s, apellido=%s, telefono=%s, "
+                      "localidad=%s, direccion=%s, factura_produccion=%s, cuit=%s WHERE id = %s")
+    valores = (nombre, apellido, telefono, localidad, direccion, factura_produccion, cuit, id_cliente)
+    cursor.execute(intruccion_sql, valores)
+
+    conexion.commit()
     cursor.close()
     conexion.close()
 
