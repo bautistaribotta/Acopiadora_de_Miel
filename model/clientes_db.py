@@ -1,5 +1,17 @@
 import mysql.connector
 
+
+class Cliente:
+    def __init__(self, nombre, apellido, telefono, localidad, direccion, factura_produccion, cuit):
+        self._nombre = nombre
+        self._apellido = apellido
+        self._telefono = telefono
+        self._localidad = localidad
+        self._direccion = direccion
+        self._factura_produccion = factura_produccion
+        self._cuit = cuit
+
+
 def buscar_cliente_nombre(nombre_cliente):
     conexion = mysql.connector.connect(
         host="localhost",
