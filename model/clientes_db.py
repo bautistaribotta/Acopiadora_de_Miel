@@ -1,15 +1,5 @@
 import mysql.connector
-
-
-class Cliente:
-    def __init__(self, nombre, apellido, telefono, localidad, direccion, factura_produccion, cuit):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.telefono = telefono
-        self.localidad = localidad
-        self.direccion = direccion
-        self.factura_produccion = factura_produccion
-        self.cuit = cuit
+from entidades import Cliente
 
 
 def nuevo_cliente(cliente : Cliente):

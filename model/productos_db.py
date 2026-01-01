@@ -1,4 +1,67 @@
 import mysql.connector
+from entidades import Producto
+
+
+def nuevo_producto(producto : Producto):
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="southern_honey_group"
+    )
+    cursor = conexion.cursor()
+
+    instruccion_sql = """INSERT INTO productos (nombre, categoria, unidad_medida, precio, cantidad) 
+                        VALUES (%s, %s, %s, %s, %s)"""
+
+    valores = (producto.nombre, producto.categoria,
+               producto.unidad_medida, producto.precio, producto.cantidad)
+
+    cursor.execute(instruccion_sql, valores)
+    conexion.commit()
+
+    cursor.close()
+    conexion.close()
+
+
+def editar_producto(id_producto, producto : Producto):
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="southern_honey_group"
+    )
+    cursor = conexion.cursor()
+
+    instruccion_sql = ("UPDATE productos SET nombre=%s, categoria=%s, unidad_medida=%s, "
+                       "precio=%s, cantidad=%s WHERE id = %s")
+
+    valores = (producto.nombre, producto.categoria, producto.unidad_medida,
+               producto.precio, producto.cantidad, id_producto)
+
+    cursor.execute(instruccion_sql, valores)
+
+    conexion.commit()
+    cursor.close()
+    conexion.close()
+
+
+def eliminar_producto(id_producto):
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="southern_honey_group"
+    )
+    cursor = conexion.cursor()
+
+    instruccion_sql = """DELETE FROM productos WHERE id = %s"""
+    valor = (id_producto,)
+    cursor.execute(instruccion_sql, valor)
+    conexion.commit()
+
+    cursor.close()
+    conexion.close()
 
 
 def buscar_producto_nombre(nombre_producto):
@@ -39,59 +102,3 @@ def buscar_producto_id(id_producto):
     cursor.close()
     conexion.close()
     return resultados
-
-
-def nuevo_producto(nombre, categoria, unidad_medida, precio, cantidad):
-    conexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="southern_honey_group"
-    )
-    cursor = conexion.cursor()
-
-    instruccion_sql = """INSERT INTO productos (nombre, categoria, unidad_medida, precio, cantidad) 
-                        VALUES (%s, %s, %s, %s, %s)"""
-    valores = (nombre, categoria, unidad_medida, precio, cantidad)
-    cursor.execute(instruccion_sql, valores)
-    conexion.commit()
-
-    cursor.close()
-    conexion.close()
-
-
-def editar_producto(id_producto, nombre, categoria, unidad_medida, precio, cantidad):
-    conexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="southern_honey_group"
-    )
-    cursor = conexion.cursor()
-
-    instruccion_sql = ("UPDATE productos SET nombre=%s, categoria=%s, unidad_medida=%s, "
-                       "precio=%s, cantidad=%s WHERE id = %s")
-    valores = (nombre, categoria, unidad_medida, precio, cantidad, id_producto)
-    cursor.execute(instruccion_sql, valores)
-
-    conexion.commit()
-    cursor.close()
-    conexion.close()
-
-
-def eliminar_producto(id_producto):
-    conexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="southern_honey_group"
-    )
-    cursor = conexion.cursor()
-
-    instruccion_sql = """DELETE FROM productos WHERE id = %s"""
-    valor = (id_producto,)
-    cursor.execute(instruccion_sql, valor)
-    conexion.commit()
-
-    cursor.close()
-    conexion.close()
