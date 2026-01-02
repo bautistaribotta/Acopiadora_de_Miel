@@ -1,10 +1,12 @@
 from tkinter import ttk
+
+from controller.productos_controlador import listar_productos_controlador
 from estilos_view import *
 from controller.validaciones import *
 import tkinter as tk
 
 
-def productos():
+def listado_productos():
     ventana_productos = tk.Toplevel()
     ventana_productos.title("Productos")
     ventana_productos.geometry("800x600+0+85")
@@ -60,6 +62,18 @@ def productos():
     columnas = ("id", "nombre", "categoria", "cantidad")
     tabla_productos = ttk.Treeview(frame_tabla, columns=columnas, show="headings",
                                    yscrollcommand=scrollbar.set, height=20)
+
+    # MOSTRAR LOS DATOS EN EL TREEVIEW
+    def actualizar_tabla():
+        # Limpia la tabla
+        for item in tabla_productos.get_children():
+            tabla_productos.delete(item)
+        # Vuelve a escribirla pero actualizada
+        clientes = listar_productos_controlador()
+        for cliente in clientes:
+            tabla_productos.insert("", "end", values=cliente)
+
+    actualizar_tabla()
 
 
     # CONFIGURAR COLUMNAS
@@ -264,5 +278,5 @@ def editar_producto():
 if __name__ == "__main__":
     root = tk.Tk() # Crea una ventana principal oculta
     root.withdraw() # La oculta (porque no la necesito visible)
-    productos() # Abre la ventana Toplevel de productos
+    listado_productos() # Abre la ventana Toplevel de productos
     root.mainloop() # Mantiene la aplicación corriendo

@@ -64,6 +64,24 @@ def eliminar_producto(id_producto):
     conexion.close()
 
 
+def listar_producto_db():
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="southern_honey_group"
+    )
+    cursor = conexion.cursor()
+
+    instruccion = "SELECT id, nombre, categoria, cantidad FROM productos"
+    cursor.execute(instruccion)
+    resultados = cursor.fetchall()
+
+    cursor.close()
+    conexion.close()
+    return resultados
+
+
 def buscar_producto_nombre(nombre_producto):
     conexion = mysql.connector.connect(
         host="localhost",

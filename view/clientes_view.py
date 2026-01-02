@@ -68,8 +68,10 @@ def listado_clientes():
 
     # MOSTRAR LOS DATOS EN EL TREEVIEW
     def actualizar_tabla():
+        # Limpia la tabla
         for item in tabla_clientes.get_children():
             tabla_clientes.delete(item)
+        # Vuelve a escribirla pero actualizada
         clientes = listar_clientes_controlador()
         for cliente in clientes:
             tabla_clientes.insert("", "end", values=cliente)
@@ -489,7 +491,7 @@ def informacion_cliente_vista():
 
 
 if __name__ == "__main__":
-    root = tk.Tk()  # Crea una ventana principal oculta
+    root = tk.Tk()  # Crea una ventana principal
     root.withdraw()  # La oculta (porque no la necesito visible)
     listado_clientes()  # Abre la ventana Toplevel de proveedores
     root.mainloop()  # Mantiene la aplicación corriendo

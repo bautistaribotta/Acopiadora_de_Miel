@@ -29,7 +29,7 @@ def pantalla_principal():
 
     # BOTONES
     boton_productos = tk.Button(opciones_top, text="PRODUCTOS")
-    boton_productos.configure(bg=color_primario, fg=color_secundario, command=productos, cursor="hand2")
+    boton_productos.configure(bg=color_primario, fg=color_secundario, command=listado_productos, cursor="hand2")
     boton_productos.grid(row=0, column=0, padx=20, pady=15)
 
     boton_clientes = tk.Button(opciones_top, text="CLIENTES")
