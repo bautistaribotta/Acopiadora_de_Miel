@@ -1,5 +1,5 @@
 import mysql.connector
-from entidades import Cliente
+from model.entidades import Cliente
 
 
 def nuevo_cliente_db(cliente : Cliente):

@@ -157,7 +157,7 @@ def nuevo_cliente_vista():
     label_factura.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_factura.grid(row=6, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    opciones_factura = ["No", "Sí"]
+    opciones_factura = ["No", "Si"]
     combobox_factura = ttk.Combobox(ventana_nuevo_cliente, values=opciones_factura)
     combobox_factura.config(state="readonly", font=fuente_texto, width=18)
     combobox_factura.current(0)
@@ -206,7 +206,7 @@ def nuevo_cliente_vista():
 
     # Función para mostrar/ocultar CUIT según la selección del combobox
     def actualizar_cuit(event):
-        if combobox_factura.get() == "Sí":
+        if combobox_factura.get() == "Si":
             label_cuit.grid(row=7, column=0, sticky="e", padx=(20, 10), pady=10)
             entry_cuit.grid(row=7, column=1, sticky="w", padx=(0, 20), pady=10)
         else:
@@ -289,7 +289,7 @@ def editar_cliente_vista():
     label_factura.config(font=fuente_texto, bg=color_primario, fg=color_secundario)
     label_factura.grid(row=6, column=0, sticky="e", padx=(20, 10), pady=10)
 
-    opciones_factura = ["No", "Sí"]
+    opciones_factura = ["No", "Si"]
     combobox_factura = ttk.Combobox(ventana_editar_cliente, values=opciones_factura)
     combobox_factura.config(state="readonly", font=fuente_texto, width=18)
     combobox_factura.current(0)
@@ -319,7 +319,7 @@ def editar_cliente_vista():
 
     # Función para mostrar/ocultar CUIT según la selección del combobox
     def actualizar_cuit(event):
-        if combobox_factura.get() == "Sí":
+        if combobox_factura.get() == "Si":
             label_cuit.grid(row=7, column=0, sticky="e", padx=(20, 10), pady=10)
             entry_cuit.grid(row=7, column=1, sticky="w", padx=(0, 20), pady=10)
         else:

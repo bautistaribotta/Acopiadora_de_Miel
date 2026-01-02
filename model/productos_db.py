@@ -1,5 +1,5 @@
 import mysql.connector
-from entidades import Producto
+from model.entidades import Producto
 
 
 def nuevo_producto(producto : Producto):
