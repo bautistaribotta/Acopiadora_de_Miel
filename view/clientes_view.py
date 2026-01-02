@@ -1,10 +1,10 @@
 from operaciones_view import *
 from estilos_view import *
 from controller.validaciones import *
-from controller.clientes_controlador import nuevo_cliente_controlador
+from controller.clientes_controlador import nuevo_cliente_controlador, listar_clientes_controlador
 
 
-def listados_clientes():
+def listado_clientes():
     ventana_clientes = tk.Toplevel()
     ventana_clientes.title("Clientes")
     ventana_clientes.geometry("800x600+550+85")
@@ -61,6 +61,11 @@ def listados_clientes():
     columnas = ("id", "nombre", "localidad", "telefono")
     tabla_clientes = ttk.Treeview(frame_tabla, columns=columnas, show="headings",
                                      yscrollcommand=scrollbar.set, height=20)
+
+    # MOSTRAR LOS DATOS EN EL TREEVIEW
+    clientes = listar_clientes_controlador()
+    for cliente in clientes:
+        tabla_clientes.insert("", "end", values=cliente)
 
 
     # CONFIGURAR COLUMNAS
@@ -477,5 +482,5 @@ def informacion_cliente_vista():
 if __name__ == "__main__":
     root = tk.Tk()  # Crea una ventana principal oculta
     root.withdraw()  # La oculta (porque no la necesito visible)
-    listados_clientes()  # Abre la ventana Toplevel de proveedores
+    listado_clientes()  # Abre la ventana Toplevel de proveedores
     root.mainloop()  # Mantiene la aplicación corriendo

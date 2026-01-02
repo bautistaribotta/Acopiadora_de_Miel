@@ -67,6 +67,25 @@ def eliminar_cliente(id_cliente):
     conexion.close()
 
 
+def listar_clientes_db():
+    conexion = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="root",
+        database="southern_honey_group"
+    )
+    cursor = conexion.cursor()
+
+    # Seleccionamos las columnas en el mismo orden que el Treeview (id, nombre, localidad, telefono)
+    instruccion_sql = "SELECT id, CONCAT(nombre, ' ', apellido), localidad, telefono FROM clientes"
+    cursor.execute(instruccion_sql)
+    resultados = cursor.fetchall()
+
+    cursor.close()
+    conexion.close()
+    return resultados
+
+
 def buscar_cliente_id(id_cliente):
     """Tener en cuenta que esta funcion usa LIKE ya que hace una busqueda en tiempo real"""
     conexion = mysql.connector.connect(
