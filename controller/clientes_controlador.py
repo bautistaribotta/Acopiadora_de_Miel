@@ -7,7 +7,7 @@ def nuevo_cliente_controlador(nombre, apellido, telefono, localidad, direccion, 
     if not nombre or not apellido or not telefono:
         messagebox.showwarning("Faltan datos", "Por favor complete los campos obligatorios.")
         return
-    factura = 1 if str(factura).strip().lower() == "si" else 0
+    factura = 1 if factura == "Si" else 0
     nuevo_obj_cliente = Cliente(nombre, apellido, telefono, localidad, direccion, factura, cuit)
 
     try:
